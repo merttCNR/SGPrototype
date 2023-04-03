@@ -7,7 +7,7 @@ public class CoinDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Coin")){
             /*
-                Spawner Code.
+                Collector Code.
             */
         }
     }
