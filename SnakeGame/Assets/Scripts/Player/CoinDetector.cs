@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CoinDetector : MonoBehaviour
 {
+   public TailManager tailManager;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Coin")){
-            /*
-                Collector Code.
-            */
+            Debug.Log("çalışıyor!!!");
+            tailManager.TailFunc();
         }
-    }
+    } 
 }
