@@ -11,16 +11,16 @@ public class PlayerController : MonoBehaviour
     [Header("PlayerVariables")]
     float borderX = 14.2f;
     float borderY = 6.69f;
-    const float playerSpeed = 2f;
+    const float playerSpeed = 10f;
     Quaternion target;
-
+    
     void Update(){
         InputDetect();
         PlayerMove();
         PlayerBorder();
     }
     private void PlayerMove(){
-        this.transform.Translate(Vector3.up * playerSpeed * Time.deltaTime); // bu kod tamam.
+        this.transform.Translate(Vector3.up * playerSpeed * Time.deltaTime);
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
             transform.localRotation = Quaternion.Euler(0,0,90);
         }

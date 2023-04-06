@@ -14,16 +14,20 @@ public class TailManager : MonoBehaviour
     public GameObject coinPreb;
     public GameObject collector;
     public Transform holder;
+    public Transform player;
+
+    [Header("Scripts")]
+    public CoinDetector coinDetector;
 
     public void TailFunc(){
         for (int i = 0; i < tailLength; i++)
         {
-            GameObject newcoin = Instantiate(coinPreb,collector.transform.position + Vector3.up,Quaternion.identity);
+            GameObject newcoin = Instantiate(coinPreb,collector.transform.position +  new Vector3(0,-coinDetector.coin,0),player.transform.localRotation);
+            collector = newcoin;
             newcoin.transform.SetParent(holder);
-            collector.transform.position += Vector3.down;
         }
     }
-    public void InstantiateCoin(){
+    public void InstantiateRandomCoin(){
         Instantiate(coinPreb,RandomSpawn(),Quaternion.identity);
     }
     public Vector3 RandomSpawn(){
