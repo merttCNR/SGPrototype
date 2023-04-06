@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("PlayerVariables")]
     float borderX = 14.2f;
     float borderY = 6.69f;
-    const float playerSpeed = 10f;
+    const float playerSpeed = 2f;
+    Quaternion target;
 
     void Update(){
         InputDetect();
@@ -19,12 +20,25 @@ public class PlayerController : MonoBehaviour
         PlayerBorder();
     }
     private void PlayerMove(){
-        this.transform.Translate(moveDirection * playerSpeed * Time.deltaTime);
+        this.transform.Translate(Vector3.up * playerSpeed * Time.deltaTime); // bu kod tamam.
+        if(Input.GetKeyDown(KeyCode.LeftArrow)){
+            transform.localRotation = Quaternion.Euler(0,0,90);
+        }
+        else if(Input.GetKeyDown(KeyCode.RightArrow)){
+            transform.localRotation = Quaternion.Euler(0,0,-90);
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow)){
+            transform.localRotation = Quaternion.Euler(0,0,0);
+        }
+        else if(Input.GetKeyDown(KeyCode.DownArrow)){
+            transform.localRotation = Quaternion.Euler(0,0,-180);
+        }
+        
     }
     private void InputDetect(){
-        xInput = Input.GetAxis("Horizontal");
-        yInput = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(xInput,yInput,0);
+        xInput = Input.GetAxis("Horizontal") *2;
+        //yInput = Input.GetAxis("Vertical") *2;
+        target = Quaternion.Euler(0,0,xInput);
     }
     private void PlayerBorder(){
         if(this.transform.position.x >= borderX){       // -> bu kod sağ tarafa giderse karakter soldan gelmesini sağlıyor.
