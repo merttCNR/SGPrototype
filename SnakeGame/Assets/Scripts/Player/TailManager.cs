@@ -24,7 +24,7 @@ public class TailManager : MonoBehaviour
         {
             GameObject newcoin = Instantiate(coinPreb,collector.transform.position +  new Vector3(0,-coinDetector.coin,0),player.transform.localRotation);
             collector = newcoin;
-            newcoin.transform.SetParent(holder);
+            newcoin.transform.SetParent(holder);// bi şekilde coinler tek sıra olmuyor.!!!!!
         }
     }
     public void InstantiateRandomCoin(){
