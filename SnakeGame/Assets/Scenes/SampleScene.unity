@@ -344,7 +344,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.63
+  orthographic size: 6.2579775
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -441,7 +441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1015261373}
-  - component: {fileID: 1015261374}
   m_Layer: 0
   m_Name: Collector
   m_TagString: Untagged
@@ -464,18 +463,6 @@ Transform:
   m_Father: {fileID: 320535005}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1015261374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015261372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64f8750922017a4792c64f8d5bbc701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1238606403
 GameObject:
   m_ObjectHideFlags: 0
