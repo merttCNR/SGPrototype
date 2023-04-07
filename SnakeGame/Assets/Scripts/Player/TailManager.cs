@@ -22,7 +22,7 @@ public class TailManager : MonoBehaviour
     public void TailFunc(){
         for (int i = 0; i < tailLength; i++)
         {
-            newcoin = Instantiate(coinPreb,holder.transform.position +  new Vector3(0,+coinDetector.coin,0), holder.transform.localRotation);
+            newcoin = Instantiate(coinPreb,holder.transform.position +  new Vector3(0,coinDetector.coin,0), holder.transform.localRotation);
             newcoin.transform.SetParent(holder);
         }
     }
