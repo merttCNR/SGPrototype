@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     }
     private void InputDetect(){
         xInput = Input.GetAxis("Horizontal") *2;
-        //yInput = Input.GetAxis("Vertical") *2;
         target = Quaternion.Euler(0,0,xInput);
     }
     private void PlayerBorder(){
@@ -53,8 +52,5 @@ public class PlayerController : MonoBehaviour
         else if(this.transform.position.y <= -borderY){
             this.transform.position = new Vector3(transform.position.x,borderY,0); // -> eğer pozisyon -borderY'ten küçük ve eşitse borderY yap.
         }
-       /* if(this.transform.position.x <= -borderX){
-            this.transform.position = new Vector3(-borderX,transform.position.y,0); -> bu kod kenarları sınırlandırıyor.
-        } */
     }
 }

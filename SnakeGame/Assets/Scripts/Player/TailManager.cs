@@ -12,21 +12,21 @@ public class TailManager : MonoBehaviour
 
     [Header("GameObjects")]
     public GameObject coinPreb;
-    public GameObject collector;
+    private GameObject newcoin;
     public Transform holder;
     public Transform player;
 
     [Header("Scripts")]
     public CoinDetector coinDetector;
-
+    
     public void TailFunc(){
         for (int i = 0; i < tailLength; i++)
         {
-            GameObject newcoin = Instantiate(coinPreb,collector.transform.position +  new Vector3(0,-coinDetector.coin,0),player.transform.localRotation);
-            collector = newcoin;
-            newcoin.transform.SetParent(holder);// bi şekilde coinler tek sıra olmuyor.!!!!!
+            newcoin = Instantiate(coinPreb,holder.transform.position +  new Vector3(0,+coinDetector.coin,0), holder.transform.localRotation);
+            newcoin.transform.SetParent(holder);
         }
     }
+
     public void InstantiateRandomCoin(){
         Instantiate(coinPreb,RandomSpawn(),Quaternion.identity);
     }
