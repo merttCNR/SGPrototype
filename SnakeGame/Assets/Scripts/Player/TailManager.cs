@@ -18,12 +18,30 @@ public class TailManager : MonoBehaviour
 
     [Header("Scripts")]
     public CoinDetector coinDetector;
+    public PlayerController playerController;
     
     public void TailFunc(){
-        for (int i = 0; i < tailLength; i++)
-        {
-            newcoin = Instantiate(coinPreb,holder.transform.position +  new Vector3(0,coinDetector.coin,0), holder.transform.localRotation);
-            newcoin.transform.SetParent(holder);
+        for (int i = 0; i < tailLength; i++){
+            if (playerController.isUp)
+            {
+                newcoin = Instantiate(coinPreb,holder.transform.position + Vector3.down * coinDetector.coin, holder.transform.localRotation);
+                newcoin.transform.SetParent(holder);
+            }
+            else if (playerController.isDown)
+            {
+                newcoin = Instantiate(coinPreb,holder.transform.position + Vector3.up * coinDetector.coin,holder.transform.localRotation);
+                newcoin.transform.SetParent(holder);
+            }
+            else if (playerController.isRight)
+            {
+                newcoin = Instantiate(coinPreb,holder.transform.position + Vector3.left * coinDetector.coin, holder.transform.localRotation);
+                newcoin.transform.SetParent(holder);
+            }
+            else if (playerController.isLeft)
+            {
+                newcoin = Instantiate(coinPreb,holder.transform.position + Vector3.right * coinDetector.coin, holder.transform.localRotation);
+                newcoin.transform.SetParent(holder);
+            }
         }
     }
 
